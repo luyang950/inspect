@@ -1,17 +1,163 @@
 # 存储巡查数据
 mysql:
-  dsn: root:root@tcp(127.0.0.1:23306)/inspect?charset=utf8mb4&multiStatements=true&collation=utf8mb4_general_ci&parseTime=True&loc=UTC&timeout=10s&readTimeout=5s&writeTimeout=5s
+  dsn: root:123456@tcp(127.0.0.1:3306)/inspect?charset=utf8mb4&multiStatements=true&collation=utf8mb4_general_ci&parseTime=True&loc=UTC&timeout=10s&readTimeout=5s&writeTimeout=5s
 # 查询的监控数据
-prometheus:
+prometheus:  
   - name: prometheus-dev
-    addr: http://127.0.0.1:9090
+    addr: http://172.17.3.80:9090
     accessId:
     accessSecret:
 # 需要巡查的应用名
 apps:
   - app-api
+  - svc-edit
+  - svc-ads-go
+  - svc-apply-table
+  - svc-audio-to-text
+  - svc-audit
+  - svc-audit-ego
+  - svc-audit-worker
+  - svc-audit-worker-ego
+  - svc-auth
+  - svc-auth-ego
+  - svc-auth-worker
+  - svc-auto-mention
+  - svc-auto-mention-worker
+  - svc-billing
+  - svc-billing-worker
+  - svc-callback
+  - svc-canva-adapter
+  - svc-china-divisions
+  - svc-code-distribution
+  - svc-communication
+  - svc-conf
+  - svc-convertor-mindmap-exporter
+  - svc-convertor-officeio
+  - svc-count
+  - svc-count-worker
+  - svc-delta-maker
+  - svc-delta-parser
+  - svc-doc-history
+  - svc-doc-history-time-worker
+  - svc-doc-perception
+  - svc-doc-perception-worker
+  - svc-doc-perception-worker-big
+  - svc-doc-preferences
+  - svc-doc2html
+  - svc-docssr
+  - svc-edit
+  - svc-edit-old
+  - svc-edit-worker-automention
+  - svc-edit-worker-bigmosheet
+  - svc-edit-worker-board
+  - svc-edit-worker-form
+  - svc-edit-worker-mindmap
+  - svc-edit-worker-modoc
+  - svc-edit-worker-mosheet
+  - svc-edit-worker-presentation
+  - svc-edit-worker-rdoc
+  - svc-file
+  - svc-file-consumer
+  - svc-file-doc-perception-worker
+  - svc-file-doc-perception-worker-big
+  - svc-file-drive
+  - svc-file-drive-consumer
+  - svc-file-report
+  - svc-file-review
+  - svc-form
+  - svc-form-worker
+  - svc-front-tracker
+  - svc-history
+  - svc-history-m2o-tasks-worker
+  - svc-history-m2o-time-worker
+  - svc-history-worker-actionhistory
+  - svc-history-worker-modochistory
+  - svc-history-worker-rdochistory
+  - svc-history-worker-rsheethistory
+  - svc-i18nx
+  - svc-i18nx-ext
+  - svc-lb
+  - svc-license
+  - svc-mail
+  - svc-markdown-import-export
+  - svc-material
+  - svc-mindmap-export
+  - svc-mns
+  - svc-mns-worker
+  - svc-mocro-auth
+  - svc-nodejs-delta-maker
+  - svc-nodejs-delta-parser
+  - svc-nodejs-history-worker
+  - svc-nodejs-history-worker-actionhistory
+  - svc-nodejs-history-worker-modochistory
+  - svc-nodejs-history-worker-rdochistory
+  - svc-nodejs-history-worker-rsheethistory
+  - svc-nodejs-sas
+  - svc-nodejs-sas-runner
+  - svc-nodejs-sheet-calc
+  - svc-nodejs-sheet-calc-local-queue
+  - svc-office
+  - svc-office-converter-rs
+  - svc-open-platform
+  - svc-openai
+  - svc-order
+  - svc-oss
+  - svc-ppt-imexport
+  - svc-preview
+  - svc-preview-renderer
+  - svc-private-boss-stats
+  - svc-project-table
+  - svc-provider
+  - svc-provider-endpoint
+  - svc-provider-event-worker
+  - svc-rule-go
+  - svc-sdk-datasets
+  - svc-sdk-entrypoint
+  - svc-sdk-license
+  - svc-sdk2-doc
+  - svc-search
+  - svc-search-tool
+  - svc-search-worker-forward
+  - svc-sheet
+  - svc-sheet-calc
+  - svc-sheet-calc-local-queue
+  - svc-sheet-validate-worker
+  - svc-sheet-worker
+  - svc-sheets
+  - svc-slidelive-go
+  - svc-snapshot-cleaner
+  - svc-table
+  - svc-table-converter
+  - svc-table-worker
+  - svc-team-persona
+  - svc-thirdparty
+  - svc-thirdparty-worker
+  - svc-thumbnail
+  - svc-thumbnail-board
+  - svc-thumbnail-document
+  - svc-thumbnail-document-pro
+  - svc-thumbnail-mindmap
+  - svc-thumbnail-ppt
+  - svc-thumbnail-sheet
+  - svc-time-limiter
+  - svc-tracking
+  - svc-translation
+  - svc-user
+  - svc-user-worker
+  - svc-utils
+  - svc-yapi
+  - table-guardian
+  - ticket-be
+  - tool
+  - uploadcdn
+  - uploader-go
+  - wechat-miniprogram-detection
+  - word-rs
+  - ws-api
+  - ws-gateway
+  - ws-gateway-api
 # 查询的监控指标
-metrics:
+metrics:  
   - name: PodCount
     desc: 实例数
     query: count(kube_pod_info{namespace="default",pod=~"%s-\\w{8,}-\\w{4,}"})
@@ -20,35 +166,28 @@ metrics:
     targetType: svc
     aggrFunc: max
   - name: CpuUsage
-    desc: 使用Cpu核心数
+    desc: cpu使用核心数
     query: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace="default",pod=~"%s-\\w{8,}-\\w{4,}"}
     type: prometheus
     typeName: prometheus-dev
     targetType: svc
     aggrFunc: max
-  - name: CpuRequest
-    desc: CpuRequest
+  - name: CpuReq
+    desc: CpuReq
     query: kube_pod_container_resource_requests{resource="cpu",namespace="default", pod=~"%s-\\w{8,}-\\w{4,}"}
     type: prometheus
     typeName: prometheus-dev
     targetType: svc
     aggrFunc: max
-  - name: CpuLimit
-    desc: CpuLimit
-    query: kube_pod_container_resource_limits{resource="cpu", namespace="default", pod=~"%s-\\w{8,}-\\w{4,}"}
-    type: prometheus
-    typeName: prometheus-dev
-    targetType: svc
-    aggrFunc: max
-  - name: CpuLimit
-    desc: CpuLimit
+  - name: CpuLim
+    desc: CpuLim
     query: kube_pod_container_resource_limits{resource="cpu", namespace="default", pod=~"%s-\\w{8,}-\\w{4,}"}
     type: prometheus
     typeName: prometheus-dev
     targetType: svc
     aggrFunc: max
   - name: MemUsage
-    desc: 使用内存
+    desc: MemUsage
     query: sum(container_memory_usage_bytes{pod=~"%s-\\w{8,}-\\w{4,}"}) by (pod)
     type: prometheus
     typeName: prometheus-dev
@@ -61,6 +200,288 @@ metrics:
     typeName: prometheus-dev
     targetType: svc
     aggrFunc: max
+  - name: MemLim
+    desc: MemLim
+    query: kube_pod_container_resource_limits{resource="memory", namespace="default", pod=~"%s-\\w{8,}-\\w{4,}"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: svc
+    aggrFunc: max
+  - name: CpuP90
+    desc: CpuP90
+    query: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace="default",pod=~"%s-\\w{8,}-\\w{4,}"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: svc
+    aggrFunc: quantile90
+  - name: CpuP95
+    desc: CpuP95
+    query: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace="default",pod=~"%s-\\w{8,}-\\w{4,}"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: svc
+    aggrFunc: quantile95
+  - name: CpuP99
+    desc: CpuP99
+    query: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace="default",pod=~"%s-\\w{8,}-\\w{4,}"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: svc
+    aggrFunc: quantile99
+  - name: TotalMemLim
+    desc: TotalMemLim
+    query: sum(kube_pod_container_resource_limits{namespace="default", resource="memory"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: average
+  - name: TotalCpuLim
+    desc: TotalCpuLim
+    query: sum(kube_pod_container_resource_limits{namespace="default", resource="cpu"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: average
+  - name: TotalCpuReq
+    desc: TotalCpuReq
+    query: namespace_cpu:kube_pod_container_resource_requests:sum{namespace="default"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: average
+  - name: TotalMemRequest
+    desc: TotalMemRequest
+    query: namespace_memory:kube_pod_container_resource_requests:sum{namespace="default"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: average
+  - name: TotalPodCount
+    desc: TotalPodCount
+    query: count(node_namespace_pod:kube_pod_info:{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: average
+  - name: AppGoroutine
+    desc: AppGoroutine
+    query: go_goroutines{app=~"^%s$"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppHandle
+    desc: 应用句柄数
+    query: process_open_fds{app=~"^%s$"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppGC
+    desc: 应用GC
+    query: go_gc_duration_seconds{app=~"^%s$"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppHTTPServerQPS
+    desc: http服务端QPS
+    query: irate(ego_server_handle_seconds_count{app=~"^%s$", type="http"}[5m])
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppGrpcServerQPS
+    desc: grpc服务端qps
+    query: irate(ego_server_handle_seconds_count{app=~"^%s$", type="unary"}[5m])
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppGrpcClientQPS
+    desc: grpc客户端qps
+    query: irate(ego_client_handle_seconds_count{app=~"^%s$", type="unary"}[5m])
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppPodCPU
+    desc: 应用CPU使用率
+    query: irate(container_cpu_usage_seconds_total{pod=~"%s-\\w{8,}-\\w{4,}"}[1m])
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppPodRss
+    desc: 应用RSS内存
+    query: container_memory_rss{container =~"^%s$"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppPodRssUseRate
+    desc: 应用RSS使用率
+    query: sum(container_memory_rss{container =~"^%s$"}) by (container)/ sum(container_spec_memory_limit_bytes{container =~"^%s$"}) by (container) * 100
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppPodDisk
+    desc: 应用磁盘使用量
+    query: sum(container_fs_usage_bytes{container=~"^%s$"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppPodDiskUseRate
+    desc: 应用磁盘利用率
+    query: sum(container_fs_usage_bytes{container=~"^%s$"}) / sum(container_fs_limit_bytes{container=~"^%s$"}) * 100
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: AppPodCount
+    desc: 应用实例数
+    query: count(ego_build_info{app=~"^%s$"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: MemP90
+    desc: MemP90
+    query: sum(container_memory_usage_bytes{pod=~"%s-\\w{8,}-\\w{4,}"}) by (pod)
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: svc
+    aggrFunc: quantile90
+  - name: MemP95
+    desc: MemP95
+    query: container_memory_usage_bytes{pod=~"%s-\\w{8,}-\\w{4,}"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: svc
+    aggrFunc: quantile95
+  - name: MemP99
+    desc: MemP99
+    query: sum(container_memory_usage_bytes{pod=~"%s-\\w{8,}-\\w{4,}"}) by (pod)
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: svc
+    aggrFunc: quantile99
+  - name: TotalCpuP95
+    desc: 总CPU P95
+    query: sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_irate{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: quantile95
+  - name: TotalMemP95
+    desc: 总内存 P95
+    query: sum(container_memory_usage_bytes{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: quantile95
+  - name: TotalCpuMax
+    desc: 总CPU最大使用量
+    query: sum(namespace_pod_name_container_name:container_cpu_usage_seconds_total:sum_irate{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: max
+  - name: TotalMemMax
+    desc: 总内存最大使用量
+    query: sum(container_memory_usage_bytes{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: max
+  - name: TotalPodCountMax
+    desc: 总实例数最大值
+    query: count(kube_pod_info{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: max
+  - name: TotalPodCountP95
+    desc: 总实例数P95
+    query: count(kube_pod_info{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: quantile95
+  - name: TotalDiskMax
+    desc: 总硬盘最大使用量
+    query: sum(container_fs_usage_bytes{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: max
+  - name: TotalDiskP99
+    desc: 总硬盘使用量P99
+    query: sum(container_fs_usage_bytes{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: quantile99
+  - name: TotalDiskP95
+    desc: 总硬盘使用量P95
+    query: sum(container_fs_usage_bytes{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: quantile95
+  - name: TotalDiskP90
+    desc: 总硬盘使用量P90
+    query: sum(container_fs_usage_bytes{namespace="default"})
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: none
+    aggrFunc: quantile90
+  - name: AppPodRssP95
+    desc: RSS p95
+    query: container_memory_rss{pod=~"%s-\\w{8,}-\\w{4,}"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: quantile95
+  - name: AppPodMem
+    desc: max(内存大小)
+    query: container_memory_usage_bytes{pod=~"%s-\\w{8,}-\\w{4,}"}
+    type: prometheus
+    typeName: prometheus-dev
+    targetType: pod
+    aggrFunc: max
+  - name: pvuv
+    desc: 整体访问PV,UV
+    query: "*| select approx_distinct(x_forward_for) as uv ,count(1) as pv"
+    type: other
+    targetType: none
+  - name: reqSuccRate
+    desc: 查询整体请求成功率(状态码小于500的)
+    query: "* and not host: track.shimo.im | select round(sum(case when status < 500 then 1 else 0 end) * 100.0 / count(1), 3) as count"
+    type: other
+    targetType: none
+  - name: reqLatencyAvg
+    desc: 查询整体平均耗时
+    query: "status < 500 and not proxy_upstream_name:default-smpro-svc-sdk-entrypoint-9001 and not proxy_upstream_name:default-smpro-ws-server-v2-9001 and not proxy_upstream_name:default-smpro-kong-plugin-8000 and not proxy_upstream_name: default-smpro-svc-aud"
+    type: other
+    targetType: none
+  - name: reqLatencyQuantile
+    desc: 查询整体耗时按TP90,95,99 分类
+    query: "status < 500 and not proxy_upstream_name:default-smpro-svc-sdk-entrypoint-9001 and not proxy_upstream_name:default-smpro-ws-server-v2-9001 and not proxy_upstream_name:default-smpro-kong-plugin-8000 and not proxy_upstream_name: default-smpro-svc-aud"
+    type: other
+    targetType: none
+  - name: reqLatencyQuantileBySvc
+    desc: 查询后端请求耗时，按服务名分组，过滤结果p95大于1的，按p95倒序排名
+    query: "status < 500 and not proxy_upstream_name:default-smpro-svc-sdk-entrypoint-9001 and not proxy_upstream_name:default-smpro-ws-server-v2-9001 and not proxy_upstream_name:default-smpro-kong-plugin-8000 and not proxy_upstream_name: default-smpro-svc-aud"
+    type: other
+    targetType: svc
+  - name: reqTraffic
+    desc: 查询出入网流量
+    query: "* | select sum(body_bytes_sent)*8/86400 as net_out, sum(request_length)*8/86400 as net_in"
+    type: other
+    targetType: none
 cron:
   prometheus:
     enableDistributedTask: false
