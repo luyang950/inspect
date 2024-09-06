@@ -69,4 +69,5 @@ GROUP BY
 
 ## 如何观测数据
 * 导入 docs/grafana.json
+* 导入后可能出现Datasource不匹配的问题（uid 不同），需要在 grafana 内手动编辑dashboard 的 datasource
 * 直接查看数据

@@ -1,0 +1,2264 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 21,
+      "panels": [],
+      "title": "应用资源统计",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "mysql",
+        "uid": "bduot74972b5sa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(利用率)"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.width",
+                "value": 144
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RSS(利用率)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "硬盘利用率"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "硬盘(Max)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 103
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(Lim)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 79
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM(Lim)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 84
+              },
+              {
+                "id": "unit",
+                "value": "bytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM(P95)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 105
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM(RssMax)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM(Req)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 202
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(Req)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 77
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "句柄数"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 93
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "实例数"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "实例数"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 59
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 82
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(P95)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "名称"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 205
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "应用峰值（每天）",
+                    "url": "https://epc.shimodev.com/report?cate=%E7%9B%91%E6%8E%A7&id=16&app=${__value.text}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(P95)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 73
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM(P95)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 86
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 89
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(P95)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 99
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(Req)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 90
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU(Lim)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 83
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM(Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 88
+              },
+              {
+                "id": "unit",
+                "value": "bytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM(RssP95)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 107
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "实例数(Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU利用率(Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 140
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 0.1
+                    },
+                    {
+                      "color": "orange",
+                      "value": 0.3
+                    },
+                    {
+                      "color": "green",
+                      "value": 0.6
+                    },
+                    {
+                      "color": "orange",
+                      "value": 0.9
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM利用率(Max)"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 145
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 0.1
+                    },
+                    {
+                      "color": "orange",
+                      "value": 0.3
+                    },
+                    {
+                      "color": "green",
+                      "value": 0.6
+                    },
+                    {
+                      "color": "orange",
+                      "value": 0.9
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 15,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.2.0-191187",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \n  a.time AS \"time\",\n\ta.target_name,\n\tmax(a.val) / max(b.val) as \"CPURateMAX\"\nFROM\n\treport_measure a\n\tJOIN report_measure b ON a.target_name = b.target_name\nWHERE\n\ta.metric = 'CpuUsage'\n\tAND b.metric = 'CpuLim'\n\tAND $__unixEpochFilter(a.time)\n\tAND $__unixEpochFilter(b.time)\nGROUP BY\n\ta.target_name",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "CPUUseRate"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodCPUUseRate'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"AppPodCPU\",\n  target_name\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'CpuUsage'\nGROUP BY target_name\nORDER BY time",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppPodCPU"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodCPU'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"AppPodRss\",\n  target_name\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'AppPodRss'\nGROUP BY target_name\nORDER BY time",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppPodRss"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodRss'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \n  a.time AS \"time\",\n\ta.target_name,\n\tmax(a.val) / max(b.val) as \"MemRateMAX\"\nFROM\n\treport_measure a\n\tJOIN report_measure b ON a.target_name = b.target_name\nWHERE\n\ta.metric = 'AppPodMem'\n\tAND b.metric = 'MemLim'\n\tAND $__unixEpochFilter(a.time)\n\tAND $__unixEpochFilter(b.time)\nGROUP BY\n\ta.target_name",
+          "refId": "D",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppPodRssUseRate"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodRssUseRate'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"AppPodDiskUseRate\",\n  target_name\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'AppPodDiskUseRate'\nGROUP BY target_name\nORDER BY time",
+          "refId": "E",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppPodDiskUseRate"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodDiskUseRate'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"AppPodDisk\",\n  target_name\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'AppPodDisk'\nGROUP BY target_name\nORDER BY time",
+          "refId": "F",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppPodDisk"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodDisk'"
+              ],
+              "type": "expression"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "target_name",
+                "=",
+                "'$targetName'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"AppHandle\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'AppHandle'\nGROUP BY target_name\nORDER BY time",
+          "refId": "G",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppHandle"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppHandle'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"CpuLim\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'CpuLim'\nGROUP BY target_name\nORDER BY time",
+          "refId": "H",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "CpuLim"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'CpuLim'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"PodCount\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'PodCount'\nGROUP BY target_name\nORDER BY time",
+          "refId": "I",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"MemLim\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'MemLim'\nGROUP BY target_name\nORDER BY time\n",
+          "refId": "J",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"MemP95\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'MemP95'\nGROUP BY target_name\nORDER BY time\n",
+          "refId": "K",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"CPUP95\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'CpuP95'\nGROUP BY target_name\nORDER BY time",
+          "refId": "L",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"CpuReq\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'CpuReq'\nGROUP BY target_name\nORDER BY time\n",
+          "refId": "M",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"MemReq\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'MemRequest'\nGROUP BY target_name\nORDER BY time",
+          "refId": "N",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  avg(val) AS \"AppHTTPServerQPS\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'AppHTTPServerQPS'\nGROUP BY target_name\nORDER BY time",
+          "refId": "O",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time AS \"time\",\n  avg(val) AS \"AppGrpcServerQPS\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'AppGrpcServerQPS'\nGROUP BY target_name\nORDER BY time\n",
+          "refId": "P",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  $__unixEpochGroupAlias(time,$__interval),\n  max(val) AS \"AppGrpcClientQPS\",\n  target_name\nFROM report_measure\nWHERE\n$__unixEpochFilter(time) AND\n  metric = 'AppGrpcClientQPS'\nGROUP BY 1, target_name\nORDER BY $__unixEpochGroup(time,$__interval)",
+          "refId": "Q",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"AppPodMem\",\n  target_name\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'AppPodMem'\nGROUP BY target_name\nORDER BY time",
+          "refId": "R",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppPodMem"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodMem'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"AppPodRssP95\",\n  target_name\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'AppPodRssP95'\nGROUP BY target_name\nORDER BY time",
+          "refId": "S",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "AppPodRssP95"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppPodRssP95'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "fmgfhKt4z"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  time AS \"time\",\n  max(val) AS \"netstatTWCnt\",\n  target_name\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'netstatTWCnt'\nGROUP BY target_name\nORDER BY time",
+          "refId": "T",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "netstatTWCnt"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'netstatTWCnt'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "title": "应用资源消耗统计",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "target_name",
+                "CPURateMAX",
+                "AppPodCPU",
+                "AppPodRss",
+                "MemRateMAX",
+                "AppPodDiskUseRate",
+                "AppPodDisk",
+                "AppHandle",
+                "CpuLim",
+                "PodCount",
+                "MemLim",
+                "MemP95",
+                "CPUP95",
+                "CpuReq",
+                "MemReq",
+                "AppHTTPServerQPS",
+                "AppGrpcServerQPS",
+                "AppGrpcClientQPS",
+                "AppPodMem",
+                "AppPodRssP95",
+                "netstatTWCnt"
+              ]
+            }
+          }
+        },
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "target_name"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "AppPodRssUseRate": true,
+              "CPUUseRate": true,
+              "MemUsage": false
+            },
+            "indexByName": {
+              "AppGrpcClientQPS": 19,
+              "AppGrpcServerQPS": 18,
+              "AppHTTPServerQPS": 17,
+              "AppHandle": 16,
+              "AppPodCPU": 3,
+              "AppPodDisk": 15,
+              "AppPodDiskUseRate": 14,
+              "AppPodMem": 10,
+              "AppPodRss": 7,
+              "AppPodRssP95": 8,
+              "CPUP95": 4,
+              "CPURateMAX": 2,
+              "CpuLim": 6,
+              "CpuReq": 5,
+              "MemLim": 13,
+              "MemP95": 11,
+              "MemRateMAX": 9,
+              "MemReq": 12,
+              "PodCount": 1,
+              "target_name": 0
+            },
+            "renameByName": {
+              "AppGC": "GC",
+              "AppGrpcClientQPS": "GRP客户端QPS",
+              "AppGrpcServerQPS": "GRPC服务端QPS",
+              "AppHTTPServerQPS": "HTTP服务端QPS",
+              "AppHandle": "句柄数",
+              "AppPodCPU": "CPU(Max)",
+              "AppPodDisk": "硬盘(Max)",
+              "AppPodDiskUseRate": "硬盘利用率",
+              "AppPodMem": "MEM(Max)",
+              "AppPodRss": "MEM(RssMax)",
+              "AppPodRssP95": "MEM(RssP95)",
+              "AppPodRssUseRate": "RSS(利用率)",
+              "CPUP95": "CPU(P95)",
+              "CPURateMAX": "CPU利用率(Max)",
+              "CPUUseRate": "CPU(利用率)",
+              "CpuLim": "CPU(Lim)",
+              "CpuReq": "CPU(Req)",
+              "MemLim": "MEM(Lim)",
+              "MemP95": "MEM(P95)",
+              "MemRateMAX": "MEM利用率(Max)",
+              "MemReq": "MEM(Req)",
+              "MemUsage": "内存使用量",
+              "PodCount": "实例数(Max)",
+              "netstatTWCnt": "TIME_WAIT 最大值",
+              "target_name": "名称"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 25,
+      "panels": [],
+      "title": "Go 性能",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "fmgfhKt4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "名称"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "协程"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 17
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "协程"
+          }
+        ]
+      },
+      "pluginVersion": "11.2.0-191187",
+      "targets": [
+        {
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  time AS \"time\",\n  target_name,\n  max(val) AS \"Goroutine\"\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'AppGoroutine'\nGROUP BY target_name\nORDER BY time",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "max"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "Goroutine"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppGoroutine'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "title": "Goroutine",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "target_name",
+                "Goroutine"
+              ]
+            }
+          }
+        },
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "target_name"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "AppGC": "GC",
+              "Goroutine": "协程",
+              "target_name": "名称"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "协程"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "fmgfhKt4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "名称"
+            },
+            "properties": [
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 4,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0-191187",
+      "targets": [
+        {
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "target_name"
+              ],
+              "type": "column"
+            }
+          ],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  time AS \"time\",\n  val AS \"GC\",\n  target_name AS \"target_name\"\nFROM report_measure\nWHERE\n  $__unixEpochFilter(time) AND\n  metric = 'AppGC'\nGROUP BY target_name\nORDER BY time",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "val"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "GC"
+                ],
+                "type": "alias"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "target_name"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "report_measure",
+          "timeColumn": "time",
+          "timeColumnType": "bigint",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "varchar",
+              "name": "",
+              "params": [
+                "metric",
+                "=",
+                "'AppGC'"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "title": "GC",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "GC",
+                "target_name"
+              ]
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {
+              "GC": 1,
+              "target_name": 0
+            },
+            "renameByName": {
+              "GC": "GC",
+              "target_name": "名称"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "GC"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1d/d",
+    "to": "now-1d/d"
+  },
+  "timepicker": {
+    "hidden": false
+  },
+  "timezone": "",
+  "title": "应用峰值表格大盘-mdp",
+  "uid": "u0XeE5rnz",
+  "version": 2,
+  "weekStart": ""
+}
